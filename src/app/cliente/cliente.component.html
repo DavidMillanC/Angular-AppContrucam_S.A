@@ -1,0 +1,115 @@
+<div>
+  <div class="div-video">
+    <video onloadedmetadata="this.muted=true" autoplay loop>
+      <source type="video/mp4" src="../../assets/icon/Maquinaria.mp4" />
+    </video>
+  </div>
+  <div class="div-formulario container-fluid w-50">
+    <div class="shadow p-5">
+      <strong><h1>ELIJA LA MAQUINARIA QUE DESEE</h1></strong>
+      <form [formGroup]="form" class="row g-3" (submit)="enviarDatos()">
+        <div class="mb-3">
+          <strong
+            ><label for="exampleFormControlInput1" class="form-label"
+              >Cliente</label
+            ></strong
+          >
+          <input
+            type="text"
+            class="form-control"
+            formControlName="cliente"
+            placeholder="Nombre y Apellidos"
+            [class.is-invalid]="clienteInvalido()"
+          />
+          <small class="text-danger" *ngIf="clienteInvalido()">
+            Cliente inválido.</small
+          >
+        </div>
+        <div class="mb-3">
+          <strong
+            ><label for="exampleFormControlInput1" class="form-label"
+              >Maquinaria</label
+            ></strong
+          >
+          <select
+            class="form-select"
+            formControlName="maquina"
+            [class.is-invalid]="maquinaInvalida()"
+          >
+            <option value="C01">C01</option>
+            <option value="C02">C02</option>
+            <option value="C03">C03</option>
+          </select>
+          <small class="text-danger" *ngIf="maquinaInvalida()">
+            Código de Maquinaria inválido.</small
+          >
+        </div>
+        <div class="mb-3">
+          <strong
+            ><label for="exampleFormControlInput1" class="form-label"
+              >Fecha de Entrega</label
+            ></strong
+          >
+          <input
+            type="date"
+            class="form-control"
+            formControlName="fechaEntrega"
+            placeholder="Ingresar fecha"
+            [class.is-invalid]="fechaEntregaInvalida()"
+          />
+          <small class="text-danger" *ngIf="fechaEntregaInvalida()">
+            Fecha de Entrega inválida.</small
+          >
+        </div>
+        <div class="mb-3">
+          <strong>
+            <label for="exampleFormControlInput1" class="form-label"
+              >Fecha de Devolución</label
+            ></strong
+          >
+          <input
+            type="date"
+            class="form-control"
+            formControlName="fechaDevolucion"
+            placeholder="Ingresar fecha"
+            [class.is-invalid]="fechaDevolucionInvalida()"
+          />
+          <small class="text-danger" *ngIf="fechaDevolucionInvalida()">
+            Fecha de Devolución inválida.</small
+          >
+        </div>
+        <div class="col-auto">
+          <button
+            type="button"
+            class="btn btn-primary btn-lg"
+            (click)="enviarDatos()"
+          >
+            Enviar datos
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="div-table">
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <th *ngFor="let column of headers">{{ column }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let array of arrays">
+          <th>{{ array.cliente }}</th>
+          <th>{{ array.maquina }}</th>
+          <th>{{ array.fechaEntrega }}</th>
+          <th>{{ array.fechaDevolucion }}</th>
+          <th>{{ array.dias }}</th>
+          <th>{{ array.importe }}</th>
+          <th>{{ array.descuento }}</th>
+          <th>{{ array.garantia }}</th>
+          <th>{{ array.totalPagar }}</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

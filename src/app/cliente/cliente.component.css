@@ -1,0 +1,49 @@
+video {
+  width: 100%;
+}
+
+video {
+  background-image: none;
+  background-attachment: scroll;
+  background-size: auto;
+  text-align: center;
+}
+
+.div-video {
+  position: relative;
+}
+
+.div-formulario {
+  position: absolute;
+  top: 180px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  font-size: 40px;
+}
+h1 {
+  color: rgb(47, 247, 170);
+  font-size: 40px;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+@media (max-width: 1650px) {
+  .div-formulario {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    font-size: 30px;
+  }
+  .div-table {
+    position: absolute;
+    top: 950px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+}
